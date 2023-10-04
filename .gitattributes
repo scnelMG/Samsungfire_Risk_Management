@@ -1,3 +1,4 @@
 total_comment_data.csv filter=lfs diff=lfs merge=lfs -text
 df_comment_tokened.csv filter=lfs diff=lfs merge=lfs -text
 data/df_comment_tokened.csv filter=lfs diff=lfs merge=lfs -text
+data/df_comment_score.csv filter=lfs diff=lfs merge=lfs -text

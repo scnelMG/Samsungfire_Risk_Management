@@ -8,6 +8,16 @@
 [![NLP](https://img.shields.io/badge/NLP-Sentiment%20Analysis-4B8BBE)](notebooks/06_sentiment_lstm_modeling.ipynb)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Repository-2ea44f)](docs/project-summary.md)
 
+## Portfolio Quick Scan
+
+| What reviewers can check | Where |
+| --- | --- |
+| 문제를 보험·리스크 관리 관점으로 재정의한 방식 | [docs/project-summary.md](docs/project-summary.md) |
+| 댓글 감성, 충성도, 성장률, 업로드 안정성을 결합한 평가 지표 | [docs/analysis-method.md](docs/analysis-method.md) |
+| LSTM 기반 댓글 감성 분석 실험 흐름 | [notebooks/06_sentiment_lstm_modeling.ipynb](notebooks/06_sentiment_lstm_modeling.ipynb) |
+| 유튜버 등급 산정과 점수 시각화 결과 | [notebooks/10_grade_threshold_design.ipynb](notebooks/10_grade_threshold_design.ipynb), [notebooks/14_grade_score_visualization.ipynb](notebooks/14_grade_score_visualization.ipynb) |
+| 공개 가능한 집계 데이터와 산출물 | [data/processed](data/processed), [data/README.md](data/README.md) |
+
 ## At A Glance
 
 | Item | Description |
@@ -17,6 +27,16 @@
 | Method | 감성 분석, 충성도 산정, 성장률·인지도 지표 설계, 등급 스코어링, 등급 예측 |
 | Output | 유튜버별 리스크 등급, 월별 지표 변화, 예측 모델링 실험, 최종 발표자료 |
 | Portfolio Focus | 비즈니스 문제 정의, 비정형·정형 데이터 결합, 평가 프레임워크 설계 |
+
+## Tech Stack
+
+| Area | Tools / Methods |
+| --- | --- |
+| Data Collection | YouTube API, Selenium crawling experiments |
+| Data Processing | Python, pandas, NumPy, Jupyter Notebook |
+| NLP | Korean comment preprocessing, sentiment labeling, LSTM sentiment model |
+| Modeling | grade scoring, threshold design, classification experiments |
+| Reporting | Excel/CSV outputs, Markdown docs, final presentation PDF |
 
 ## Why This Project Matters
 
@@ -49,6 +69,13 @@ flowchart LR
 - **NLP 적용**: 댓글 텍스트를 전처리하고 LSTM 기반 감성 분석을 실험해 월별 감성점수를 산출했습니다.
 - **평가 모델링**: 신용평점 모형의 아이디어를 참고해 유튜버 등급 기준과 스코어링 구조를 만들었습니다.
 - **포트폴리오 정리**: 원천 댓글·대형 모델 파일은 제외하고, 검토 가능한 산출물과 분석 흐름 중심으로 공개 레포를 재구성했습니다.
+
+## Skills Demonstrated
+
+- **Business framing**: 공모전 주제를 단순 마케팅 분석이 아니라 기업 협업 리스크 평가 문제로 구조화했습니다.
+- **Feature engineering**: 정량 지표와 댓글 기반 비정형 지표를 같은 평가 체계 안에서 비교 가능하게 만들었습니다.
+- **Model experimentation**: 감성 분석과 등급 예측을 각각 별도 실험으로 분리해 산출물이 등급 산정에 연결되도록 구성했습니다.
+- **Repository curation**: 채용 검토자가 원천 데이터 없이도 분석 의도, 산출물, 한계를 확인할 수 있도록 공개 범위를 정리했습니다.
 
 ## Repository Structure
 
@@ -100,6 +127,8 @@ flowchart LR
 이 레포는 포트폴리오 공개용으로 정리했습니다. 공개 적합성과 용량 관리를 위해 원천 댓글 데이터, 학습된 모델 가중치, 토크나이저, ChromeDriver 실행 파일은 제외했습니다.
 
 공개된 데이터는 `data/processed/`에 있는 집계·점수·등급 산출물 중심입니다. 자세한 설명은 [data/README.md](data/README.md)와 [docs/data-dictionary.md](docs/data-dictionary.md)를 참고하세요.
+
+공개하지 않은 파일은 로컬 보관 폴더로 분리했으며, `.gitignore`에 원천 댓글 데이터, 모델 가중치, 드라이버, 캐시 파일 패턴을 명시했습니다.
 
 ## Environment
 

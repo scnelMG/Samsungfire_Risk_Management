@@ -1,0 +1,44 @@
+# Local raw data and private archives
+data/raw/
+data/comments/
+data/comment_data/
+data/댓글_데이터/
+data/1년치_영상정보/
+data/total_video_data/
+data/labeled_data/
+_portfolio_excluded_local/
+
+# Large generated artifacts
+*.h5
+*.hdf5
+*.pickle
+*.pkl
+data/**/df_comment_score.csv
+data/**/token_output.csv
+data/**/df_comment_tokened.csv
+data/**/df_labeled_tokened.csv
+
+# Browser drivers and local executables
+chromedriver*
+chromedriver-win64/
+*.exe
+
+# Python and notebook runtime files
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.env
+.venv/
+venv/
+env/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

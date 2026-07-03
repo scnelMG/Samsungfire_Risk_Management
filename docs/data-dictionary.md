@@ -1,36 +1,49 @@
 # Data Dictionary
 
+## Public Data Boundary
+
+The public repo keeps processed score, grade, and aggregate files that help a reviewer inspect the model evidence. It intentionally excludes raw comments, raw crawl outputs, model weights, text-vectorizer artifacts, browser drivers, caches, and large intermediate exports.
+
 ## Processed Files
 
-| File | Description | Public Role |
+| File | Public interpretation | Reviewer use |
 | --- | --- | --- |
-| `final_all_data.xlsx` | 주요 지표를 합친 최종 통합 데이터 | 프로젝트 핵심 산출물 |
-| `최종_유튜버_데이터.xlsx` | 분석 대상 유튜버별 기본 지표 | 대상 정의와 요약 |
-| `total_year_video_df.csv` | 1년 단위 영상 메타데이터 집계 | 영상 성과 분석 |
-| `월간_구독자_데이터.xlsx` | 월별 구독자 지표 | 성장률 산정 |
-| `감성점수.csv` | 월별 댓글 감성점수 | 댓글 반응 지표 |
-| `충성도.csv` | 월별 충성 시청자 비율 | 팬덤 안정성 지표 |
-| `인지도부문.csv` | 인지도 부문 점수 산정용 데이터 | 외형 성과 지표 |
-| `영상_간격.xlsx` | 영상 업로드 간격 데이터 | 운영 안정성 지표 |
-| `간격_master_df.xlsx` | 업로드 간격 집계 테이블 | 등급 산정 입력 |
-| `등급_예측.xlsx` | 등급 예측 결과 또는 입력 테이블 | 예측 모델링 산출물 |
-| `raw_data_score.csv` | 등급 산정 전 점수 테이블 | 스코어링 과정 설명 |
-| `mater_table.xlsx` | 모델링 또는 등급 산정에 사용한 보조 테이블 | 방법론 참고 |
+| `final_all_data.xlsx` | Integrated feature and score table. | Inspect the combined creator-level scoring surface. |
+| `최종_유튜버_데이터.xlsx` | Final creator-level data table. | Understand which creators and high-level indicators were included. |
+| `분석_유튜버_목록.csv` | Creator list used for analysis. | Check scope of analyzed creators. |
+| `분석_유튜버_목록(제거ver).xlsx` | Filtered creator list. | Inspect excluded or cleaned creator scope. |
+| `total_year_video_df.csv` | Annual video metadata aggregate. | Inspect video-performance context. |
+| `월간_구독자_데이터.xlsx` | Monthly subscriber-related data. | Inspect growth or trend inputs. |
+| `감성점수.csv` | Comment sentiment score by creator/month or equivalent grouping. | Inspect sentiment signal used in grading. |
+| `충성도.csv` | Loyalty score or recurring-audience proxy. | Inspect audience-stability signal. |
+| `인지도부문.csv` | Awareness score inputs. | Inspect reach/visibility component. |
+| `영상_간격.xlsx` | Video upload interval data. | Inspect upload-stability signal. |
+| `간격_master_df.xlsx` | Aggregated upload interval table. | Inspect cadence features used in scoring. |
+| `좋아요 누락 영상 개수.csv` | Count of videos with missing like information. | Inspect data-quality issue related to likes. |
+| `누락영상.csv` | Missing-video records or checks. | Inspect missing-data handling. |
+| `in_com_not_month.csv` | Small intermediate or exception output retained for context. | Inspect edge cases in monthly/comment merge logic. |
+| `not_enough_youtuber.csv` | Creators with insufficient data. | Inspect minimum-data boundary. |
+| `raw_data_score.csv` | Score construction table before final grade assignment. | Inspect grading inputs without raw comments. |
+| `등급_예측.xlsx` | Grade-prediction output or prediction input/output table. | Inspect prediction experiment surface. |
+| `mater_table.xlsx` | Supporting table used in modeling or grade calculation. | Inspect auxiliary modeling context. |
 
 ## Core Concepts
 
-| Concept | Explanation |
+| Concept | Meaning |
 | --- | --- |
-| 유튜버 | 분석 대상 채널 또는 크리에이터 |
-| 월 | 월별 추세를 보기 위한 기준 기간 |
-| 댓글 수 | 해당 기간의 댓글 참여 규모 |
-| 영상 수 | 해당 기간의 업로드 또는 분석 대상 영상 수 |
-| 감성점수 | 댓글 텍스트 반응을 수치화한 점수 |
-| 충성시청자 비율 | 반복적으로 반응하는 시청자 비중을 나타내는 지표 |
-| 평균 영상 간격 | 업로드 간격을 통해 본 콘텐츠 운영 안정성 |
+| YouTuber / creator | Channel or creator evaluated by the framework. |
+| Month | Time unit for trend and feature aggregation. |
+| Awareness | Public scale or visibility signal such as views or subscribers. |
+| Growth | Direction and strength of change over time. |
+| Sentiment score | Model-derived comment reaction signal. |
+| Loyalty | Proxy for stable or repeated audience engagement. |
+| Upload interval | Time gap between videos, used as an operational stability signal. |
+| Score | Composite numeric surface used before grade assignment. |
+| Grade | Human-readable grouping derived from score thresholds. |
 
 ## Data Quality Notes
 
-- 원천 댓글 데이터는 공개하지 않았습니다.
-- 일부 원본 CSV의 컬럼명은 인코딩 문제로 깨져 있습니다.
-- 공개된 파일은 포트폴리오 설명과 산출물 검토를 위한 집계 결과 중심입니다.
+- Some files retain original Korean column names.
+- Some historical notebooks and CSV outputs contain encoding artifacts from the original execution environment.
+- Public files are intended for portfolio review, not for automated production ingestion.
+- Raw rows containing comment text or collection-level personal/user-generated content are not part of the public reproducibility boundary.

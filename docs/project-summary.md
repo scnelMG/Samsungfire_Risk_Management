@@ -1,34 +1,61 @@
 # Project Summary
 
-## 한 줄 요약
+## One-line Summary
 
-유튜브 인플루언서 협업 리스크를 평가하기 위해 영상 성과, 댓글 감성, 충성도, 성장률, 업로드 간격을 결합해 유튜버 등급 평가 프레임워크를 만든 프로젝트입니다.
+This project reframes influencer selection as a risk-management workflow and grades YouTube creators by combining audience scale, growth, comment sentiment, loyalty, and upload stability.
 
 ## Problem
 
-기업의 인플루언서 마케팅은 단기 노출 효과뿐 아니라 브랜드 이미지, 팬덤 반응, 콘텐츠 지속성에 영향을 받습니다. 구독자 수나 평균 조회수만으로 협업 대상을 고르면 다음 리스크를 놓칠 수 있습니다.
+Follower count and average views are not enough for a brand or insurer evaluating creator partnerships. A high-reach channel can still expose a campaign to risk when:
 
-- 최근 성장세가 둔화된 채널
-- 조회수는 높지만 댓글 반응이 부정적인 채널
-- 업로드 주기가 불안정해 캠페인 일정 리스크가 있는 채널
-- 충성 시청자 비율이 낮아 반복 성과가 약한 채널
+- recent growth is slowing or volatile,
+- comment sentiment is negative,
+- loyal audience participation is weak,
+- upload cadence is unstable,
+- the channel's public indicators do not support repeated collaboration confidence.
 
-## Solution
+The project turns those concerns into an inspectable scoring and grading framework for YouTubers.
 
-프로젝트는 유튜버를 하나의 신용평가 대상처럼 보고, 여러 지표를 조합해 등급을 산정했습니다.
+## Role and Contribution Boundary
 
-- **인지도**: 조회수, 구독자 수 등 외형 지표
-- **성장성**: 구독자·성과 변화율
-- **감성 반응**: 댓글 텍스트 기반 감성점수
-- **충성도**: 반복 댓글·충성 시청자 비율
-- **운영 안정성**: 평균 영상 업로드 간격
+This portfolio repo presents the owner's contribution through the artifacts that are public and reviewable here:
 
-## Portfolio Value
+- risk-management problem framing,
+- feature and score design around creator collaboration risk,
+- notebook pipeline organization from collection experiments to grade visualization,
+- public-safe documentation of data boundaries,
+- explanation of model evidence and limitations.
 
-이 레포는 단순 분석 노트북 모음이 아니라 다음 역량을 보여주는 포트폴리오입니다.
+The original work was a competition project. This repo does not claim sole authorship of the full team deliverable, and it does not publish raw or private materials needed for unrestricted reruns.
 
-- 비즈니스 리스크 문제를 데이터 문제로 재정의
-- 비정형 댓글 데이터와 정형 영상 지표 결합
-- 감성 분석 모델링과 지표 엔지니어링
-- 평가 기준 설계와 예측 모델링
-- 공개 가능한 산출물 중심의 레포 정리
+## Reviewer Path
+
+1. Start with `README.md` for the public story and safety boundary.
+2. Read `docs/analysis-method.md` for the technical pipeline.
+3. Read `docs/data-dictionary.md` to understand public processed outputs.
+4. Inspect notebooks `06`, `10`, `11`, `12`, `13`, and `14` for model-evidence and grade-evidence flow.
+5. Use `assets/final-presentation.pdf` only as a supporting final-report artifact.
+
+## Evidence Map
+
+| Evidence | Public artifact |
+| --- | --- |
+| Risk-management framing | `README.md`, this file |
+| Sentiment-model workflow | `notebooks/06_sentiment_lstm_modeling.ipynb` |
+| Loyalty and upload-stability signals | `notebooks/07_comment_loyalty_score.ipynb`, `notebooks/08_upload_interval_feature.ipynb` |
+| Feature integration | `notebooks/09_feature_merge.ipynb` |
+| Grade thresholds and assignment | `notebooks/10_grade_threshold_design.ipynb`, `notebooks/11_grade_assignment.ipynb` |
+| Prediction experiments | `notebooks/12_grade_prediction_ml.ipynb`, `notebooks/13_grade_prediction_deep_learning.ipynb` |
+| Score and grade visualization | `notebooks/14_grade_score_visualization.ipynb` |
+| Public processed outputs | `data/processed/` |
+
+## Public-safe Artifacts
+
+The repo keeps processed outputs, explanatory docs, notebooks, requirements, and a final presentation PDF. Raw data, local execution files, model weights, text-vectorizer artifacts, browser drivers, and large intermediate exports are outside the public portfolio boundary.
+
+## Limitations
+
+- The project is a prototype scoring framework, not a deployed risk product.
+- The grade should be interpreted as a review signal, not as an automated sponsorship decision.
+- The public repo supports inspection and partial reproduction, but not full raw-data collection or model-training reproduction.
+- Public docs avoid unsupported performance values because the raw training data and original runtime state are not fully included.

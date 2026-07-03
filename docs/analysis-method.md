@@ -1,43 +1,74 @@
 # Analysis Method
 
-## 1. Data Collection
+## Objective
 
-YouTube API와 Selenium 기반 수집 실험을 통해 유튜버별 영상 메타데이터와 댓글 데이터를 수집했습니다.
+Build an inspectable YouTuber grading framework for collaboration-risk review. The framework should help a reviewer compare creators by signals that are more risk-relevant than reach alone.
 
-주요 수집 항목은 다음과 같습니다.
+## Pipeline
 
-- 영상 제목과 URL
-- 조회수
-- 업로드 날짜
-- 영상 길이
-- 좋아요 수
-- 채널명
-- 댓글 텍스트와 댓글 좋아요 수
+| Stage | Public artifact | What it contributes |
+| --- | --- | --- |
+| Collection experiments | `01_youtube_data_collection.ipynb`, `02_legacy_youtube_crawling_selenium.ipynb`, `03_video_metadata_collection.ipynb` | Historical YouTube metadata and comment collection logic. |
+| Quality checks | `04_data_quality_check.ipynb` | Missing-data and consistency checks before feature engineering. |
+| Comment preprocessing | `05_comment_labeling_preprocess.ipynb` | Labeled comment preparation for sentiment modeling. |
+| Sentiment modeling | `06_sentiment_lstm_modeling.ipynb` | Korean comment preprocessing, text vectorization, LSTM experiment, classification metrics, and sentiment-score export. |
+| Loyalty signal | `07_comment_loyalty_score.ipynb` | Repeated or loyal audience participation proxy. |
+| Upload stability | `08_upload_interval_feature.ipynb` | Average upload interval and cadence-stability signal. |
+| Feature merge | `09_feature_merge.ipynb` | Combines monthly creator-level features into the scoring surface. |
+| Grade design | `10_grade_threshold_design.ipynb`, `11_grade_assignment.ipynb` | Translates score components into grades. |
+| Prediction experiments | `12_grade_prediction_ml.ipynb`, `13_grade_prediction_deep_learning.ipynb` | Tests whether engineered feature histories can predict grade groups. |
+| Visualization | `14_grade_score_visualization.ipynb` | Inspects score and grade trends by creator. |
 
-## 2. Feature Engineering
+## Feature Design
 
-협업 리스크를 설명하기 위해 다음 지표를 설계했습니다.
+The grading surface combines several evidence classes:
 
-| Feature | Meaning |
-| --- | --- |
-| 인지도 | 조회수와 구독자 수 기반 외형 지표 |
-| 성장률 | 기간별 구독자·성과 변화 |
-| 감성점수 | 댓글 텍스트 감성 분석 결과 |
-| 충성도 | 충성 시청자 비율과 댓글 참여 구조 |
-| 평균 영상 간격 | 업로드 주기의 안정성 |
+- Awareness: views, subscribers, or other public scale indicators.
+- Growth: monthly movement in creator performance or subscriber-related indicators.
+- Sentiment: comment text converted into a sentiment score with an LSTM experiment.
+- Loyalty: recurring or concentrated audience response signals.
+- Upload stability: cadence and gap patterns that affect campaign reliability.
 
-## 3. Sentiment Modeling
+The important modeling choice is that grade evidence comes from multiple signals. A creator should not be considered low-risk only because one metric is strong.
 
-댓글 텍스트를 전처리한 뒤 LSTM 기반 감성 분석 모델을 실험했습니다. 댓글 좋아요 수를 반영해 단순 평균보다 반응 강도를 고려한 감성점수를 계산했습니다.
+## Sentiment-model Evidence
 
-## 4. Grade Design
+The public sentiment-model notebook includes:
 
-신용평점 모형의 아이디어를 참고해 유튜버별 리스크 등급을 산정했습니다. 등급은 단일 지표가 아니라 인지도, 성장성, 감성, 충성도, 업로드 안정성을 결합해 해석하도록 설계했습니다.
+- labeled comment preprocessing,
+- label conversion,
+- rare-word and length handling,
+- sequence preparation,
+- LSTM model training,
+- metric calculation using accuracy, recall, precision, F1, AUC, classification report, and confusion matrix code,
+- weighted sentiment-score export that accounts for comment like counts.
 
-## 5. Prediction
+The repo documents the existence of those metric calculations but does not promote a specific metric value as portfolio evidence because raw comments, local model files, and the original runtime state are intentionally excluded.
 
-최종 산출 지표를 바탕으로 유튜버 등급 예측 모델을 실험했습니다. 이 단계는 평가 프레임워크가 단순 사후 설명을 넘어 모니터링·예측 도구로 확장될 수 있는지 확인하는 목적입니다.
+## Grade Evidence
 
-## Reproducibility Notes
+Grade evidence is visible through:
 
-포트폴리오 공개 버전에서는 원천 댓글 데이터와 모델 가중치를 포함하지 않습니다. 따라서 전체 수집·학습 재현보다 분석 흐름, 산출 지표, 평가 프레임워크 이해를 우선합니다.
+- `data/processed/raw_data_score.csv` for score construction context,
+- `data/processed/final_all_data.xlsx` for integrated public features,
+- `data/processed/등급_예측.xlsx` for grade-prediction outputs,
+- `notebooks/10_grade_threshold_design.ipynb` and `notebooks/11_grade_assignment.ipynb` for threshold and assignment logic,
+- `notebooks/14_grade_score_visualization.ipynb` for trend inspection.
+
+## Reproducibility Boundary
+
+The public repo is designed for inspection and partial reproduction:
+
+- You can install dependencies from `requirements.txt`.
+- You can inspect notebooks in numeric order.
+- You can inspect public processed outputs in `data/processed/`.
+- You should not expect full end-to-end reproduction from raw YouTube comments because those raw files are intentionally excluded.
+- You should treat Selenium collection notebooks as historical experiments, not as a stable public data-ingestion interface.
+
+## Model and Risk Limitations
+
+- The grade is a review aid, not a deterministic approval rule.
+- The scoring framework depends on collection timing, YouTube platform behavior, and available public signals.
+- Public processed data cannot fully represent raw comment context.
+- Sentiment modeling can misclassify sarcasm, slang, mixed-language comments, and context-dependent reactions.
+- The prediction experiments are prototype evidence for the grading framework, not a production monitoring system.

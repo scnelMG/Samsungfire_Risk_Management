@@ -13,6 +13,7 @@ notebooks/02_legacy_youtube_crawling_selenium.ipynb
 # Large generated artifacts
 *.h5
 *.hdf5
+*.xlsx
 *.pickle
 *.pkl
 data/**/df_comment_score.csv

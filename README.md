@@ -1,5 +1,9 @@
 # Samsungfire Risk Management - 인플루언서 협업 리스크 평가
 
+<p align="center">2023 삼성화재 리스크관리 경진대회 · 인플루언서 데이터 분석 · 리스크 등급화 · Python</p>
+
+<p align="center"><a href="assets/final-presentation.pdf">실제 최종 발표 자료 보기</a></p>
+
 > 유튜버/인플루언서 협업 후보를 인지도, 성장성, 충성도, 감성, 업로드 안정성 관점에서 등급화한 리스크 관리 프로젝트입니다.
 
 [![Python](https://img.shields.io/badge/Python-Data%20Analysis-3776AB?logo=python&logoColor=white)](requirements.txt)

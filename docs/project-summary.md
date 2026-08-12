@@ -28,15 +28,21 @@ The project turns those concerns into an inspectable scoring and grading framewo
 
 ## Role and Contribution Boundary
 
-This portfolio repo presents the owner's contribution through the artifacts that are public and reviewable here:
+| Member | Responsibility |
+| --- | --- |
+| Park Minkyu | YouTube data analysis, upload-interval feature engineering, risk-signal flow, and public-portfolio documentation. |
+| Ham Dahyun | Score-table integration, final grading, and grade-assignment logic. |
+| Park Sojeong | Grade-threshold design and K-S/PSI suitability review. |
+| Moon Changsu | Domain research, insurance-use scenarios, and final-presentation composition. |
 
-- risk-management problem framing,
-- feature and score design around creator collaboration risk,
-- notebook pipeline organization from collection experiments to grade visualization,
+This portfolio repo presents Park Minkyu's contribution through the artifacts that are public and reviewable here:
+
+- YouTube data analysis and upload-interval feature engineering,
+- risk-signal flow and reviewer-oriented notebook organization,
 - public-safe documentation of data boundaries,
-- explanation of model evidence and limitations.
+- explanation of model evidence, final-presentation sources, and limitations.
 
-The original work was a competition project. This repo does not claim sole authorship of the full team deliverable, and it does not publish raw or private materials needed for unrestricted reruns.
+The original work was a team competition project. This repo does not claim sole authorship of the full team deliverable, and it does not publish raw or private materials needed for unrestricted reruns.
 
 ## Reviewer Path
 

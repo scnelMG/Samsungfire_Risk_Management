@@ -15,7 +15,7 @@ Build an inspectable YouTuber grading framework for collaboration-risk review. T
 | Loyalty signal | `07_comment_loyalty_score.ipynb` | Repeated or loyal audience participation proxy. |
 | Upload stability | `08_upload_interval_feature.ipynb` | Average upload interval and cadence-stability signal. |
 | Feature merge | `09_feature_merge.ipynb` | Combines monthly creator-level features into the scoring surface. |
-| Grade design | `10_grade_threshold_design.ipynb`, `11_grade_assignment.ipynb` | Translates score components into grades. |
+| Score design | `10_grade_threshold_design.ipynb`, `11_grade_assignment.ipynb` | Designs score thresholds and calculates channel-scale/loyalty components. |
 | Historical prediction experiments | `notebooks/archive/12_grade_prediction_ml.ipynb`, `notebooks/archive/13_grade_prediction_deep_learning.ipynb` | Preserved exploration only; not used as public performance evidence. |
 | Visualization | `14_grade_score_visualization.ipynb` | Inspects score and grade trends by creator. |
 
@@ -27,7 +27,7 @@ The grading surface combines several evidence classes:
 - Growth: monthly movement in creator performance or subscriber-related indicators.
 - Sentiment: comment text converted into a sentiment score with an LSTM experiment.
 - Loyalty: recurring or concentrated audience response signals.
-- Upload stability: cadence and gap patterns that affect campaign reliability.
+- Upload stability: channel별 영상을 월 단위로 정렬한 뒤 평균 업로드 간격과 영상 개수를 계산합니다. 평균 업로드 간격은 `10_grade_threshold_design.ipynb`에서 점수 구간 설계에 사용되며, 업로드가 없는 달이 연속되는 길이(`null_지속`)는 연속 공백을 점검하는 보조 진단값입니다. 관련 feature 구현은 `08_upload_interval_feature.ipynb`에 남아 있습니다.
 
 The important modeling choice is that grade evidence comes from multiple signals. A creator should not be considered low-risk only because one metric is strong.
 
@@ -47,9 +47,9 @@ The repo documents the existence of those metric calculations but does not promo
 
 ## Grade Evidence
 
-Grade design is inspectable through:
+Score-design evidence is inspectable through:
 
-- `notebooks/10_grade_threshold_design.ipynb` and `notebooks/11_grade_assignment.ipynb` for threshold and assignment logic,
+- `notebooks/10_grade_threshold_design.ipynb` and `notebooks/11_grade_assignment.ipynb` for threshold and component-score logic,
 - `notebooks/14_grade_score_visualization.ipynb` for trend inspection.
 - `assets/final-presentation.pdf` for the actual final project presentation.
 

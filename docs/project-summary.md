@@ -31,8 +31,8 @@ The project turns those concerns into an inspectable scoring and grading framewo
 | Member | Responsibility |
 | --- | --- |
 | Park Minkyu | YouTube data analysis, upload-interval feature engineering, risk-signal flow, and public-portfolio documentation. |
-| Ham Dahyun | Score-table integration, final grading, and grade-assignment logic. |
-| Park Sojeong | Grade-threshold design and K-S/PSI suitability review. |
+| Ham Dahyun | Subscriber, average-view, and loyal-viewer score-table implementation. |
+| Park Sojeong | Subscriber-growth, sentiment, and upload-interval score-threshold design. |
 | Moon Changsu | Domain research, insurance-use scenarios, and final-presentation composition. |
 
 This portfolio repo presents Park Minkyu's contribution through the artifacts that are public and reviewable here:
@@ -49,7 +49,7 @@ The original work was a team competition project. This repo does not claim sole 
 1. Start with `README.md` for the public story and safety boundary.
 2. Read `docs/analysis-method.md` for the technical pipeline.
 3. Read `docs/data-dictionary.md` to understand the historical feature concepts and data boundary.
-4. Inspect notebooks `06`, `10`, `11`, and `14` for the sentiment and grade-design flow.
+4. Inspect notebooks `06`, `10`, `11`, and `14` for the sentiment and score-design flow.
 5. Open `assets/final-presentation.pdf` for the actual final project presentation.
 
 ## Evidence Map
@@ -60,7 +60,7 @@ The original work was a team competition project. This repo does not claim sole 
 | Sentiment-model workflow | `notebooks/06_sentiment_lstm_modeling.ipynb` |
 | Loyalty and upload-stability signals | `notebooks/07_comment_loyalty_score.ipynb`, `notebooks/08_upload_interval_feature.ipynb` |
 | Feature integration | `notebooks/09_feature_merge.ipynb` |
-| Grade thresholds and assignment | `notebooks/10_grade_threshold_design.ipynb`, `notebooks/11_grade_assignment.ipynb` |
+| Score thresholds and component scoring | `notebooks/10_grade_threshold_design.ipynb`, `notebooks/11_grade_assignment.ipynb` |
 | Historical prediction experiments | `notebooks/archive/` (not used as performance evidence) |
 | Score and grade visualization | `notebooks/14_grade_score_visualization.ipynb` |
 | Public scope and reproducibility boundary | `data/README.md`, `docs/public-safety.md`, `notebooks/README.md` |

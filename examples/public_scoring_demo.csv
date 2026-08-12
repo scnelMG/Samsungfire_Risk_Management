@@ -1,0 +1,7 @@
+channel_id,reach_signal,growth_signal,loyalty_signal,sentiment_signal,upload_stability_signal
+DEMO-001,82,76,71,79,88
+DEMO-002,63,69,74,61,72
+DEMO-003,91,58,53,67,49
+DEMO-004,48,55,62,52,66
+DEMO-005,75,84,81,77,73
+DEMO-006,57,43,46,59,54

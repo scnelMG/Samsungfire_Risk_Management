@@ -16,7 +16,7 @@ Build an inspectable YouTuber grading framework for collaboration-risk review. T
 | Upload stability | `08_upload_interval_feature.ipynb` | Average upload interval and cadence-stability signal. |
 | Feature merge | `09_feature_merge.ipynb` | Combines monthly creator-level features into the scoring surface. |
 | Grade design | `10_grade_threshold_design.ipynb`, `11_grade_assignment.ipynb` | Translates score components into grades. |
-| Prediction experiments | `12_grade_prediction_ml.ipynb`, `13_grade_prediction_deep_learning.ipynb` | Tests whether engineered feature histories can predict grade groups. |
+| Historical prediction experiments | `notebooks/archive/12_grade_prediction_ml.ipynb`, `notebooks/archive/13_grade_prediction_deep_learning.ipynb` | Preserved exploration only; not used as public performance evidence. |
 | Visualization | `14_grade_score_visualization.ipynb` | Inspects score and grade trends by creator. |
 
 ## Feature Design
@@ -63,6 +63,7 @@ The public repo is designed for inspection, not full reproduction:
 - You can inspect notebooks in numeric order with [notebook 안내](../notebooks/README.md).
 - You should not expect end-to-end reproduction because raw YouTube comments, collection outputs, derived data tables, model weights, and the original runtime state are intentionally excluded.
 - You should treat Selenium collection notebooks as historical experiments, not as a stable public data-ingestion interface.
+- You should treat `notebooks/archive/` as historical exploration, not as model-performance evidence.
 
 ## Model and Risk Limitations
 

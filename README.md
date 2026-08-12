@@ -2,6 +2,8 @@
 
 <p align="center">2023 삼성화재 데이터 기반 리스크관리 경진대회 · 인플루언서 협업 리스크 평가 · Python</p>
 
+<p align="center"><img src="assets/presentation/cover-slide.png" width="360" alt="제2회 데이터기반 리스크관리 경진대회 실제 최종 발표 표지"></p>
+
 <p align="center"><a href="assets/final-presentation.pdf">실제 최종 발표자료 보기 (PDF)</a></p>
 
 > 유튜브 협업 후보를 인지도·성장성·충성도·댓글 감성·업로드 안정성으로 살펴보고, 사람이 비교할 수 있는 리스크 등급으로 요약한 팀 분석 프로젝트입니다.
@@ -17,7 +19,7 @@
 | --- | --- |
 | 문제 | 도달 규모만으로는 협업 후보의 지속성·반응·운영 안정성을 판단하기 어렵습니다. |
 | 해결 | 다섯 가지 신호를 하나의 검토 표면으로 결합하고, threshold 기반 등급으로 요약했습니다. |
-| 산출물 | 단계별 분석 notebook, 방법론 문서, 실제 최종 발표자료(PDF) |
+| 산출물 | 단계별 분석 notebook, 방법론 문서, 실제 최종 발표자료(PDF·슬라이드) |
 | 공개 범위 | 코드·문서·발표자료만 공개합니다. 데이터와 모델 산출물은 공개하지 않습니다. |
 
 이 저장소는 보험 인수나 손해율 예측 모델이 아닙니다. 브랜드·보험사의 협업 후보 검토에 활용할 수 있는 의사결정 보조 score를 실험한 포트폴리오입니다.
@@ -30,6 +32,7 @@
 | [assets/final-presentation.pdf](assets/final-presentation.pdf) | 실제 대회 최종 발표자료 |
 | [docs/analysis-method.md](docs/analysis-method.md) | metadata/comment에서 score/grade까지의 분석 흐름 |
 | [notebooks/README.md](notebooks/README.md) | notebook별 목적과 실행 경계 |
+| [notebooks/archive/README.md](notebooks/archive/README.md) | 성능 근거로 사용하지 않는 역사적 예측 실험 |
 | [docs/public-safety.md](docs/public-safety.md) | 공개 자료와 비공개 자료의 경계 |
 
 ## 문제 정의
@@ -57,6 +60,10 @@
 
 ## 파이프라인
 
+<p align="center"><img src="assets/presentation/analysis-pipeline-slide.png" width="780" alt="실제 최종 발표자료의 유튜버 등급 산출 분석 과정"></p>
+
+<p align="center"><sub>실제 최종 발표자료 5쪽에서 추출한 분석 과정 슬라이드입니다.</sub></p>
+
 ```mermaid
 flowchart LR
     A["YouTube metadata / comments"] --> B["품질 점검"]
@@ -73,10 +80,15 @@ flowchart LR
 - `notebooks/06_sentiment_lstm_modeling.ipynb`: 댓글 전처리, sequence 구성, LSTM 학습, classification metric 확인
 - `notebooks/10_grade_threshold_design.ipynb`: score threshold 설계
 - `notebooks/11_grade_assignment.ipynb`: 최종 grade 부여
-- `notebooks/12_grade_prediction_ml.ipynb`, `13_grade_prediction_deep_learning.ipynb`: grade prediction 실험
 - [`assets/final-presentation.pdf`](assets/final-presentation.pdf): 실제 최종 발표자료
 
-수치 성능이나 순위는 원본 학습 데이터와 당시 실행 환경을 공개하지 않은 상태에서 재검증할 수 없으므로, 이 README에서는 주장하지 않습니다.
+수치 성능이나 순위는 원본 학습 데이터와 당시 실행 환경을 공개하지 않은 상태에서 재검증할 수 없으므로, 이 README에서는 주장하지 않습니다. 예측 모델 notebook은 [archive](notebooks/archive/README.md)로 분리했으며, 성능 근거가 아닌 당시의 탐색 기록으로만 보존합니다.
+
+## 포트폴리오 해석 기준
+
+- 이 프로젝트의 핵심은 단일 인기 지표가 아닌 감성·참여도·성실도·성장률을 결합한 **협업 리스크 등급 설계**입니다.
+- 댓글 감성 모델은 외부 리뷰 데이터로 학습하고 별도 라벨 댓글로 적용 가능성을 확인한 실험입니다. 원문과 라벨 데이터가 비공개이므로 성능 수치를 재현 가능한 결과로 주장하지 않습니다.
+- 예측 모델 실험은 validation 설계와 원본 데이터가 공개 경계 밖에 있어, 포트폴리오의 핵심 성과나 성능 비교 근거로 사용하지 않습니다.
 
 ## 재현 가능성
 
@@ -87,6 +99,8 @@ pip install -r requirements.txt
 ```
 
 `requirements.txt`는 notebook 구조를 검토하기 위한 호환 범위를 제공합니다. raw comment, 수집 결과, 모델 가중치, 당시 실행 환경을 공개하지 않았기 때문에 전체 수집·학습의 동일 결과 재현은 지원하지 않습니다. 자세한 실행 경계는 [notebooks/README.md](notebooks/README.md)를 확인하세요.
+
+`konlpy` 실행에는 Java JDK가 추가로 필요하며, Selenium 수집 notebook은 YouTube 화면 구조와 수집 시점에 따라 동작하지 않을 수 있습니다.
 
 ## 공개/비공개 경계
 

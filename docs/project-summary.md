@@ -33,7 +33,7 @@ The original work was a competition project. This repo does not claim sole autho
 1. Start with `README.md` for the public story and safety boundary.
 2. Read `docs/analysis-method.md` for the technical pipeline.
 3. Read `docs/data-dictionary.md` to understand the historical feature concepts and data boundary.
-4. Inspect notebooks `06`, `10`, `11`, `12`, `13`, and `14` for model-evidence and grade-evidence flow.
+4. Inspect notebooks `06`, `10`, `11`, and `14` for the sentiment and grade-design flow.
 5. Open `assets/final-presentation.pdf` for the actual final project presentation.
 
 ## Evidence Map
@@ -45,7 +45,7 @@ The original work was a competition project. This repo does not claim sole autho
 | Loyalty and upload-stability signals | `notebooks/07_comment_loyalty_score.ipynb`, `notebooks/08_upload_interval_feature.ipynb` |
 | Feature integration | `notebooks/09_feature_merge.ipynb` |
 | Grade thresholds and assignment | `notebooks/10_grade_threshold_design.ipynb`, `notebooks/11_grade_assignment.ipynb` |
-| Prediction experiments | `notebooks/12_grade_prediction_ml.ipynb`, `notebooks/13_grade_prediction_deep_learning.ipynb` |
+| Historical prediction experiments | `notebooks/archive/` (not used as performance evidence) |
 | Score and grade visualization | `notebooks/14_grade_score_visualization.ipynb` |
 | Public scope and reproducibility boundary | `data/README.md`, `docs/public-safety.md`, `notebooks/README.md` |
 

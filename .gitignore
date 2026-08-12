@@ -48,3 +48,6 @@ env/
 Thumbs.db
 .vscode/
 .idea/
+
+# Local render and review artifacts
+tmp/

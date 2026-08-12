@@ -4,6 +4,16 @@
 
 This project reframes influencer selection as a risk-management workflow and grades YouTube creators by combining audience scale, growth, comment sentiment, loyalty, and upload stability.
 
+## Project Facts
+
+| Item | Record |
+| --- | --- |
+| Competition | Samsung Fire & Marine Insurance X POSTECH, 2nd Data-Based Risk Management Competition |
+| Period | August–November 2023 (approximately three months) |
+| Team | Four-person team, 정규함수 |
+| Outcome | Encouragement Award |
+| Scope | Approximately 450,000 YouTube comments and channel/video metadata; raw and derived data are not public. |
+
 ## Problem
 
 Follower count and average views are not enough for a brand or insurer evaluating creator partnerships. A high-reach channel can still expose a campaign to risk when:
@@ -48,6 +58,7 @@ The original work was a competition project. This repo does not claim sole autho
 | Historical prediction experiments | `notebooks/archive/` (not used as performance evidence) |
 | Score and grade visualization | `notebooks/14_grade_score_visualization.ipynb` |
 | Public scope and reproducibility boundary | `data/README.md`, `docs/public-safety.md`, `notebooks/README.md` |
+| Final presentation result record | `assets/presentation/sentiment-evaluation-slide.png`, `assets/presentation/grade-validation-slide.png` |
 
 ## Public-safe Artifacts
 
@@ -59,3 +70,4 @@ The repo keeps explanatory docs, notebooks, requirements, and an actual final pr
 - The grade should be interpreted as a review signal, not as an automated sponsorship decision.
 - The public repo supports inspection and partial reproduction, but not full raw-data collection or model-training reproduction.
 - Public docs avoid unsupported performance values because the raw training data and original runtime state are not fully included.
+- Performance figures shown in README are explicitly attributed to the final presentation record, not a rerun of this public repository.

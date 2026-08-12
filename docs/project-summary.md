@@ -32,9 +32,9 @@ The original work was a competition project. This repo does not claim sole autho
 
 1. Start with `README.md` for the public story and safety boundary.
 2. Read `docs/analysis-method.md` for the technical pipeline.
-3. Read `docs/data-dictionary.md` to understand public processed outputs.
+3. Read `docs/data-dictionary.md` to understand the historical feature concepts and data boundary.
 4. Inspect notebooks `06`, `10`, `11`, `12`, `13`, and `14` for model-evidence and grade-evidence flow.
-5. Use `assets/final-presentation.pdf` only as a supporting final-report artifact.
+5. Open `assets/final-presentation.pdf` for the actual final project presentation.
 
 ## Evidence Map
 
@@ -47,11 +47,11 @@ The original work was a competition project. This repo does not claim sole autho
 | Grade thresholds and assignment | `notebooks/10_grade_threshold_design.ipynb`, `notebooks/11_grade_assignment.ipynb` |
 | Prediction experiments | `notebooks/12_grade_prediction_ml.ipynb`, `notebooks/13_grade_prediction_deep_learning.ipynb` |
 | Score and grade visualization | `notebooks/14_grade_score_visualization.ipynb` |
-| Public processed outputs | `data/processed/` |
+| Public scope and reproducibility boundary | `data/README.md`, `docs/public-safety.md`, `notebooks/README.md` |
 
 ## Public-safe Artifacts
 
-The repo keeps processed outputs, explanatory docs, notebooks, requirements, and a final presentation PDF. Raw data, local execution files, model weights, text-vectorizer artifacts, browser drivers, and large intermediate exports are outside the public portfolio boundary.
+The repo keeps explanatory docs, notebooks, requirements, and an actual final presentation PDF. Raw data, derived data tables, local execution files, model weights, text-vectorizer artifacts, browser drivers, and large intermediate exports are outside the public portfolio boundary.
 
 ## Limitations
 

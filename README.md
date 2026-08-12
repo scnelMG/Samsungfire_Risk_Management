@@ -1,31 +1,36 @@
-# Samsungfire Risk Management - 인플루언서 협업 리스크 평가
+# Samsungfire Risk Management
 
-<p align="center">2023 삼성화재 리스크관리 경진대회 · 인플루언서 데이터 분석 · 리스크 등급화 · Python</p>
+<p align="center">2023 삼성화재 데이터 기반 리스크관리 경진대회 · 인플루언서 협업 리스크 평가 · Python</p>
 
-<p align="center"><a href="assets/final-presentation.pdf">실제 최종 발표 자료 보기</a></p>
+<p align="center"><a href="assets/final-presentation.pdf">실제 최종 발표자료 보기 (PDF)</a></p>
 
-> 유튜버/인플루언서 협업 후보를 인지도, 성장성, 충성도, 감성, 업로드 안정성 관점에서 등급화한 리스크 관리 프로젝트입니다.
+> 유튜브 협업 후보를 인지도·성장성·충성도·댓글 감성·업로드 안정성으로 살펴보고, 사람이 비교할 수 있는 리스크 등급으로 요약한 팀 분석 프로젝트입니다.
 
 [![Python](https://img.shields.io/badge/Python-Data%20Analysis-3776AB?logo=python&logoColor=white)](requirements.txt)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)](notebooks)
 [![NLP](https://img.shields.io/badge/NLP-Sentiment%20Analysis-4B8BBE)](notebooks/06_sentiment_lstm_modeling.ipynb)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Risk%20Scoring-2ea44f)](docs/project-summary.md)
 
-## 개요
+## 한눈에 보기
 
-2023 삼성화재 데이터 기반 리스크 관리 경진대회 프로젝트의 포트폴리오 버전입니다. 팔로워 수나 평균 조회수만으로 협업 대상을 고르는 대신, 댓글 감성, 성장성, 충성도, 업로드 주기, 인지도 지표를 결합해 협업 리스크를 검토할 수 있는 등급화 framework를 만들었습니다.
+| 구분 | 내용 |
+| --- | --- |
+| 문제 | 도달 규모만으로는 협업 후보의 지속성·반응·운영 안정성을 판단하기 어렵습니다. |
+| 해결 | 다섯 가지 신호를 하나의 검토 표면으로 결합하고, threshold 기반 등급으로 요약했습니다. |
+| 산출물 | 단계별 분석 notebook, 방법론 문서, 실제 최종 발표자료(PDF) |
+| 공개 범위 | 코드·문서·발표자료만 공개합니다. 데이터와 모델 산출물은 공개하지 않습니다. |
 
-이 저장소는 보험 인수 모델이나 손실 예측 모델이 아닙니다. 브랜드/보험사가 협업 후보를 검토할 때 사용할 수 있는 decision-support score를 실험한 데이터 분석 프로젝트입니다.
+이 저장소는 보험 인수나 손해율 예측 모델이 아닙니다. 브랜드·보험사의 협업 후보 검토에 활용할 수 있는 의사결정 보조 score를 실험한 포트폴리오입니다.
 
 ## 빠른 검토 경로
 
 | 먼저 볼 것 | 확인할 내용 |
 | --- | --- |
-| [docs/project-summary.md](docs/project-summary.md) | 문제 정의, 역할 범위, 공개 가능한 evidence map |
+| [docs/project-summary.md](docs/project-summary.md) | 문제 정의, 역할 범위, 검토 근거 |
+| [assets/final-presentation.pdf](assets/final-presentation.pdf) | 실제 대회 최종 발표자료 |
 | [docs/analysis-method.md](docs/analysis-method.md) | metadata/comment에서 score/grade까지의 분석 흐름 |
-| [docs/data-dictionary.md](docs/data-dictionary.md) | 공개 processed file 의미와 제외 데이터 |
-| [notebooks/06_sentiment_lstm_modeling.ipynb](notebooks/06_sentiment_lstm_modeling.ipynb) | 댓글 감성 모델링 evidence |
-| [notebooks/10_grade_threshold_design.ipynb](notebooks/10_grade_threshold_design.ipynb) | 등급 threshold 설계 |
+| [notebooks/README.md](notebooks/README.md) | notebook별 목적과 실행 경계 |
+| [docs/public-safety.md](docs/public-safety.md) | 공개 자료와 비공개 자료의 경계 |
 
 ## 문제 정의
 
@@ -38,8 +43,8 @@
 - 협업 리스크 관점의 문제 정의와 feature dimension 정리
 - 댓글 감성, 충성도, 성장성, 업로드 안정성 등 score 구성 문서화
 - notebook pipeline을 reviewer가 따라갈 수 있도록 단계별 정리
-- raw comment, crawl artifact, model weight, vectorizer, 대용량 중간 파일 제외
-- 공개 가능한 processed output과 문서 중심의 검토 경로 구성
+- raw comment, crawl artifact, 모델 산출물, 파생 데이터 공개 제외
+- 코드·문서·실제 발표자료만으로 검토 가능한 포트폴리오 경로 구성
 
 ## 기술적 의사결정
 
@@ -48,7 +53,7 @@
 | 감성 분석 | LSTM 기반 댓글 감성 모델 | 댓글 반응을 정량 score로 변환하기 위한 핵심 단계입니다. |
 | 리스크 feature | 인지도, 성장성, 충성도, 감성, 업로드 안정성 | 단일 인기 지표보다 협업 리스크를 입체적으로 보기 위함입니다. |
 | 등급화 | score threshold 설계 | 사람이 검토 가능한 A/B/C 등급 형태로 요약하기 위함입니다. |
-| 공개 정책 | processed/aggregate 중심 공개 | raw comment와 crawl data의 개인정보/재배포 리스크를 줄이기 위함입니다. |
+| 공개 정책 | 코드·문서·발표자료만 공개 | 원본·파생 데이터의 재배포 조건과 식별 가능성 리스크를 줄이기 위함입니다. |
 
 ## 파이프라인
 
@@ -63,37 +68,40 @@ flowchart LR
     G --> H["예측 실험 / 시각화"]
 ```
 
-## 결과 근거
+## 분석 근거
 
 - `notebooks/06_sentiment_lstm_modeling.ipynb`: 댓글 전처리, sequence 구성, LSTM 학습, classification metric 확인
 - `notebooks/10_grade_threshold_design.ipynb`: score threshold 설계
 - `notebooks/11_grade_assignment.ipynb`: 최종 grade 부여
 - `notebooks/12_grade_prediction_ml.ipynb`, `13_grade_prediction_deep_learning.ipynb`: grade prediction 실험
-- `data/processed/`: 공개 가능한 processed score/grade output
+- [`assets/final-presentation.pdf`](assets/final-presentation.pdf): 실제 최종 발표자료
+
+수치 성능이나 순위는 원본 학습 데이터와 당시 실행 환경을 공개하지 않은 상태에서 재검증할 수 없으므로, 이 README에서는 주장하지 않습니다.
 
 ## 재현 가능성
 
 ```bash
+python -m venv .venv
+# Windows PowerShell: .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-공개 저장소에서는 notebook과 processed output을 검토할 수 있습니다. raw comment, raw crawl, model weight, text vectorizer, local driver는 공개하지 않았기 때문에 전체 수집/학습 재현은 제한됩니다.
+`requirements.txt`는 notebook 구조를 검토하기 위한 호환 범위를 제공합니다. raw comment, 수집 결과, 모델 가중치, 당시 실행 환경을 공개하지 않았기 때문에 전체 수집·학습의 동일 결과 재현은 지원하지 않습니다. 자세한 실행 경계는 [notebooks/README.md](notebooks/README.md)를 확인하세요.
 
 ## 공개/비공개 경계
 
 포함:
 
 - 단계별 notebook
-- processed/aggregate score data
 - 분석 방법론과 data dictionary
-- 최종 발표 자료
+- 실제 최종 발표 자료
 
 제외:
 
 - raw YouTube comments, raw crawl outputs
-- local Selenium/ChromeDriver 실행 파일
-- model weight, vectorizer, cache
-- 개인정보 가능 자료, credential, 대용량 중간 산출물
+- 파생 데이터 테이블 및 중간 산출물
+- local Selenium/ChromeDriver 실행 파일, model weight, vectorizer, cache
+- 개인정보 가능 자료, credential, 재배포 조건이 불명확한 데이터
 
 ## 한계
 

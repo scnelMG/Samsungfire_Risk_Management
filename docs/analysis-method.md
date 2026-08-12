@@ -8,7 +8,7 @@ Build an inspectable YouTuber grading framework for collaboration-risk review. T
 
 | Stage | Public artifact | What it contributes |
 | --- | --- | --- |
-| Collection experiments | `01_youtube_data_collection.ipynb`, `02_legacy_youtube_crawling_selenium.ipynb`, `03_video_metadata_collection.ipynb` | Historical YouTube metadata and comment collection logic. |
+| Collection experiments | `01_youtube_data_collection.ipynb`, `03_video_metadata_collection.ipynb` | Historical YouTube metadata and comment collection logic. |
 | Quality checks | `04_data_quality_check.ipynb` | Missing-data and consistency checks before feature engineering. |
 | Comment preprocessing | `05_comment_labeling_preprocess.ipynb` | Labeled comment preparation for sentiment modeling. |
 | Sentiment modeling | `06_sentiment_lstm_modeling.ipynb` | Korean comment preprocessing, text vectorization, LSTM experiment, classification metrics, and sentiment-score export. |
@@ -47,28 +47,26 @@ The repo documents the existence of those metric calculations but does not promo
 
 ## Grade Evidence
 
-Grade evidence is visible through:
+Grade design is inspectable through:
 
-- `data/processed/raw_data_score.csv` for score construction context,
-- `data/processed/final_all_data.xlsx` for integrated public features,
-- `data/processed/등급_예측.xlsx` for grade-prediction outputs,
 - `notebooks/10_grade_threshold_design.ipynb` and `notebooks/11_grade_assignment.ipynb` for threshold and assignment logic,
 - `notebooks/14_grade_score_visualization.ipynb` for trend inspection.
+- `assets/final-presentation.pdf` for the actual final project presentation.
+
+Dataset-derived tables and prediction outputs are intentionally not public. The notebooks communicate the historical approach, but they are not presented as executable proof of a particular score or performance value.
 
 ## Reproducibility Boundary
 
-The public repo is designed for inspection and partial reproduction:
+The public repo is designed for inspection, not full reproduction:
 
-- You can install dependencies from `requirements.txt`.
-- You can inspect notebooks in numeric order.
-- You can inspect public processed outputs in `data/processed/`.
-- You should not expect full end-to-end reproduction from raw YouTube comments because those raw files are intentionally excluded.
+- You can install the review environment described in `requirements.txt`.
+- You can inspect notebooks in numeric order with [notebook 안내](../notebooks/README.md).
+- You should not expect end-to-end reproduction because raw YouTube comments, collection outputs, derived data tables, model weights, and the original runtime state are intentionally excluded.
 - You should treat Selenium collection notebooks as historical experiments, not as a stable public data-ingestion interface.
 
 ## Model and Risk Limitations
 
 - The grade is a review aid, not a deterministic approval rule.
 - The scoring framework depends on collection timing, YouTube platform behavior, and available public signals.
-- Public processed data cannot fully represent raw comment context.
 - Sentiment modeling can misclassify sarcasm, slang, mixed-language comments, and context-dependent reactions.
 - The prediction experiments are prototype evidence for the grading framework, not a production monitoring system.

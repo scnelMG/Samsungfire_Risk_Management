@@ -7,7 +7,10 @@ data/1년치_영상정보/
 data/total_video_data/
 data/labeled_data/
 _portfolio_excluded_local/
-data/processed/raw_data_score.csv
+# Historical project data is retained locally when needed, but is not a
+# public-portfolio artifact. This includes derived tables because their
+# source/redistribution boundary cannot be verified from the repository.
+data/processed/
 notebooks/02_legacy_youtube_crawling_selenium.ipynb
 
 # Large generated artifacts

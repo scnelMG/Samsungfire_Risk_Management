@@ -57,16 +57,7 @@
 
 <p align="center"><sub>실제 최종 발표자료 5쪽에서 분석 흐름만 선별했습니다.</sub></p>
 
-```mermaid
-flowchart LR
-    A["YouTube metadata / comments"] --> B["품질 점검"]
-    B --> C["feature engineering"]
-    C --> D["감성 / 충성도 / 성장성 / 안정성"]
-    D --> E["risk score"]
-    E --> F["grade threshold"]
-    F --> G["등급 부여"]
-    G --> H["예측 실험 / 시각화"]
-```
+> **분석 흐름**: YouTube 메타데이터·댓글 → 품질 점검 → 피처 엔지니어링 → 감성·충성도·성장성·안정성 → 위험 점수·등급 부여 → 예측 실험과 시각화
 
 ## 분석 근거
 

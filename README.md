@@ -25,18 +25,6 @@
 
 이 저장소는 보험 인수나 손해율 예측 모델이 아닙니다. 브랜드·보험사의 협업 후보 검토에 활용할 수 있는 의사결정 보조 score를 실험한 포트폴리오입니다.
 
-## 빠른 검토 경로
-
-| 먼저 볼 것 | 확인할 내용 |
-| --- | --- |
-| [docs/project-summary.md](docs/project-summary.md) | 문제 정의, 역할 범위, 검토 근거 |
-| [assets/final-presentation.pdf](assets/final-presentation.pdf) | 실제 대회 최종 발표자료 |
-| [docs/analysis-method.md](docs/analysis-method.md) | metadata/comment에서 score/grade까지의 분석 흐름 |
-| [notebooks/00_public_scoring_demo.ipynb](notebooks/00_public_scoring_demo.ipynb) | 실제 데이터를 쓰지 않고 실행 가능한 공개 score→grade 흐름 |
-| [notebooks/README.md](notebooks/README.md) | notebook별 목적과 실행 경계 |
-| [notebooks/archive/README.md](notebooks/archive/README.md) | 성능 근거로 사용하지 않는 역사적 예측 실험 |
-| [docs/public-safety.md](docs/public-safety.md) | 공개 자료와 비공개 자료의 경계 |
-
 ## 문제 정의
 
 협업 후보의 reach가 높아도 최근 성장세가 불안정하거나, 댓글 반응이 부정적이거나, 충성도가 낮거나, 업로드 주기가 불규칙하면 캠페인 리스크가 커질 수 있습니다. 이 프로젝트는 유튜버 채널 데이터를 다면적으로 점수화해 사람이 비교 가능한 등급으로 변환했습니다.
@@ -109,16 +97,6 @@ flowchart LR
 
 </details>
 
-## 포트폴리오 해석 기준
-
-- 이 프로젝트의 핵심은 단일 인기 지표가 아닌 채널 규모·참여·성장·충성도·감성·업로드 패턴을 결합한 **협업 리스크 등급 설계**입니다.
-- 댓글 감성 모델은 외부 리뷰 데이터로 학습하고 별도 라벨 댓글로 적용 가능성을 확인한 실험입니다. 원문과 라벨 데이터가 비공개이므로 성능 수치를 재현 가능한 결과로 주장하지 않습니다.
-- 예측 모델 실험은 validation 설계와 원본 데이터가 공개 경계 밖에 있어, 포트폴리오의 핵심 성과나 성능 비교 근거로 사용하지 않습니다.
-
-## 회고
-
-장려상 수상 후 현업 담당자 피드백을 통해, 인플루언서 협업 리스크는 계약 조항으로도 관리되고 있음을 확인했습니다. 이 경험은 모델의 정교함보다 먼저 **문제가 실제로 존재하는지, 현업이 이미 어떻게 다루는지, 기존 방식보다 실질적으로 나은지**를 검증해야 한다는 기준을 만들었습니다. 따라서 이 프로젝트는 등급 모델 구현뿐 아니라 문제 정의와 현업 맥락 검증의 중요성을 배운 출발점으로 기록합니다.
-
 ## 재현 가능성
 
 ```bash
@@ -139,23 +117,13 @@ python -m jupyter nbconvert --execute --to notebook --stdout notebooks/00_public
 
 ## 공개/비공개 경계
 
-포함:
-
-- 단계별 notebook
-- 분석 방법론과 data dictionary
-- 실제 최종 발표 자료
-
-제외:
-
-- raw YouTube comments, raw crawl outputs
-- 파생 데이터 테이블 및 중간 산출물
-- local Selenium/ChromeDriver 실행 파일, model weight, vectorizer, cache
-- 개인정보 가능 자료, credential, 재배포 조건이 불명확한 데이터
+- 공개: 단계별 notebook, 분석 방법론, 실제 최종 발표자료
+- 제외: 원본 댓글·수집 결과·파생 데이터, 모델 산출물, 재배포 조건이 불명확한 자료, 비밀값
+- 재현: 공개 데모는 가상 입력으로 score→grade 계산 연결만 확인합니다.
 
 ## 한계
 
 - 등급은 협업 후보 검토를 돕는 참고 지표이며 최종 의사결정이 아닙니다.
 - raw data가 제외되어 end-to-end reproduction은 불가능합니다.
 - 공개 데모의 입력·가중치·등급 기준은 데이터 경계를 지키기 위한 설명용 값이며, 실제 대회 결과를 재현하지 않습니다.
-- 일부 notebook은 경진대회 당시 실험 기록을 보존하고 있어 production code 수준으로 정리되어 있지 않습니다.
 - 리스크 score는 실제 손해율이나 보험 underwriting 결과를 예측하지 않습니다.

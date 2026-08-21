@@ -53,9 +53,9 @@
 
 ## 파이프라인
 
-<p align="center"><img src="assets/presentation/analysis-pipeline-slide.png" width="780" alt="실제 최종 발표자료의 유튜버 등급 산출 분석 과정"></p>
+<p align="center"><img src="assets/presentation/analysis-pipeline-flow.png" width="720" alt="실제 최종 발표자료에서 선별한 유튜버 등급 산출 분석 흐름"></p>
 
-<p align="center"><sub>실제 최종 발표자료 5쪽에서 추출한 분석 과정 슬라이드입니다.</sub></p>
+<p align="center"><sub>실제 최종 발표자료 5쪽에서 분석 흐름만 선별했습니다.</sub></p>
 
 ```mermaid
 flowchart LR

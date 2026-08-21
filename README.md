@@ -159,3 +159,7 @@ python -m jupyter nbconvert --execute --to notebook --stdout notebooks/00_public
 - 공개 데모의 입력·가중치·등급 기준은 데이터 경계를 지키기 위한 설명용 값이며, 실제 대회 결과를 재현하지 않습니다.
 - 일부 notebook은 경진대회 당시 실험 기록을 보존하고 있어 production code 수준으로 정리되어 있지 않습니다.
 - 리스크 score는 실제 손해율이나 보험 underwriting 결과를 예측하지 않습니다.
+
+## 이용 안내
+
+이 저장소는 포트폴리오·학습 기록 열람을 위해 공개합니다. 코드·문서·이미지의 재사용, 수정, 배포는 사전 문의가 필요합니다.

@@ -30,17 +30,17 @@ The project turns those concerns into an inspectable scoring and grading framewo
 
 | Member | Responsibility |
 | --- | --- |
-| Park Minkyu | YouTube data analysis, upload-interval feature engineering, risk-signal flow, and public-portfolio documentation. |
+| Park Minkyu | Direct YouTube collection, preprocessing and integrity checks; manually labeled-comment LSTM sentiment analysis; upload-stability feature engineering; detailed component-scoring implementation. Public-portfolio documentation was completed after the competition. |
 | Ham Dahyun | Subscriber, average-view, and loyal-viewer score-table implementation. |
 | Park Sojeong | Subscriber-growth, sentiment, and upload-interval score-threshold design. |
 | Moon Changsu | Domain research, insurance-use scenarios, and final-presentation composition. |
 
 This portfolio repo presents Park Minkyu's contribution through the artifacts that are public and reviewable here:
 
-- YouTube data analysis and upload-interval feature engineering,
-- risk-signal flow and reviewer-oriented notebook organization,
-- public-safe documentation of data boundaries,
-- explanation of model evidence, final-presentation sources, and limitations.
+- YouTube channel, video, and comment collection with preprocessing and integrity checks,
+- LSTM sentiment analysis based on manually labeled YouTube comments,
+- upload-interval and consecutive no-upload-month (`null_지속`) features with detailed component-scoring implementation,
+- public-safe documentation of data boundaries, model evidence, final-presentation sources, and limitations.
 
 The original work was a team competition project. This repo does not claim sole authorship of the full team deliverable, and it does not publish raw or private materials needed for unrestricted reruns.
 
@@ -74,6 +74,7 @@ The repo keeps explanatory docs, notebooks, requirements, and an actual final pr
 
 - The project is a prototype scoring framework, not a deployed risk product.
 - The grade should be interpreted as a review signal, not as an automated sponsorship decision.
+- Because collaboration risk is already partly managed through contracts, the framework's incremental value over contract-based management needs separate validation.
 - The public repo supports inspection and partial reproduction, but not full raw-data collection or model-training reproduction.
 - Public docs avoid unsupported performance values because the raw training data and original runtime state are not fully included.
 - Performance figures shown in README are explicitly attributed to the final presentation record, not a rerun of this public repository.

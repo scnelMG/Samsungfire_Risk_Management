@@ -14,7 +14,7 @@
 | Growth | Direction and strength of change over time. |
 | Sentiment score | Model-derived comment reaction signal. |
 | Loyalty | Proxy for stable or repeated audience engagement. |
-| Upload interval | Channel별 월간 영상 업로드 일자 차이의 평균. `10_grade_threshold_design.ipynb`에서 점수 구간 설계에 사용. 영상 개수와 업로드가 없는 연속 월수(`null_지속`)는 보조 진단값. |
+| Upload interval | Channel별 월간 영상 업로드 일자 차이의 평균. `10_grade_threshold_design.ipynb`에서 평균 업로드 간격과 업로드가 없는 연속 월수(`null_지속`)를 업로드 안정성 등급 점수에 반영. |
 | Score | Composite numeric surface used before grade assignment. |
 | Grade | Human-readable grouping derived from score thresholds. |
 

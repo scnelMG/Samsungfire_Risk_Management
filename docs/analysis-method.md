@@ -27,7 +27,7 @@ The grading surface combines several evidence classes:
 - Growth: monthly movement in creator performance or subscriber-related indicators.
 - Sentiment: comment text converted into a sentiment score with an LSTM experiment.
 - Loyalty: recurring or concentrated audience response signals.
-- Upload stability: channel별 영상을 월 단위로 정렬한 뒤 평균 업로드 간격과 영상 개수를 계산합니다. 평균 업로드 간격은 `10_grade_threshold_design.ipynb`에서 점수 구간 설계에 사용되며, 업로드가 없는 달이 연속되는 길이(`null_지속`)는 연속 공백을 점검하는 보조 진단값입니다. 관련 feature 구현은 `08_upload_interval_feature.ipynb`에 남아 있습니다.
+- Upload stability: channel별 영상을 월 단위로 정렬한 뒤 평균 업로드 간격과 영상 개수를 계산합니다. 평균 업로드 간격과 업로드가 없는 달이 연속되는 길이(`null_지속`)는 `10_grade_threshold_design.ipynb`의 업로드 안정성 등급 점수에 반영하며, 관련 feature 구현은 `08_upload_interval_feature.ipynb`에 남아 있습니다.
 
 The important modeling choice is that grade evidence comes from multiple signals. A creator should not be considered low-risk only because one metric is strong.
 
